@@ -69,13 +69,15 @@
 }
 
 .content{
-	width: 100%;
-	position: fixed;
-	top: 50%;
-	transform: translateY(-50%);
-	text-align: center;
-	color: #fff;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%; /* Center the content horizontally */
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
 }
+
 
 
 
