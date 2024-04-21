@@ -2,7 +2,12 @@
 	margin: 0px;
 	padding: 0px;
 	font-family: Helvetica, 'Courier New';
-	font-size: smaller;
+	font-size: 16px; /* Adjusted font size */
+	box-sizing: border-box;
+}
+
+body {
+    background-color:rgb(242, 97, 232);
 }
 
 .banner{
@@ -70,19 +75,22 @@
 
 .content{
     width: 100%;
-    position: fixed;
+    position: relative; /* Changed from fixed to relative */
     top: 50%;
     left: 50%; /* Center the content horizontally */
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
+    padding: 20px;
+    padding-top: 750px; /* Added padding to the top */
 }
 
-
-
+#info{
+	transform: translateY(200%);
+}
 
 #main h1{
-	font-size: 57px;
+	font-size: 3rem; /* Adjusted font size */
 	margin-top: 10px;;
 }
 
@@ -93,7 +101,7 @@
 }
 
 #docu h1{
-	font-size: 40px;
+	font-size: 2.5rem; /* Adjusted font size */
 	margin-top: -380px;
 }
 
@@ -136,4 +144,10 @@ button:hover span{
 button:hover{
 	border:none;
 	color: #000;
+}
+
+/* Scrollable container for links */
+.scrollable-container {
+    max-height: 300px; /* Adjust height as needed */
+    overflow-y: auto;
 }
