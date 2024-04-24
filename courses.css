@@ -5,16 +5,19 @@
 }
 
 body {
-    background-color: rgb(242, 97, 232);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('abouticeland.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .banner {
     height: 100vh;
     width: 100%;
-    background-color: rgb(242, 97, 232);
+    /* Removed duplicated background styling */
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
 }
 
@@ -43,8 +46,12 @@ body {
     color: blueviolet;
 }
 
+.navbar ul {
+    padding: 0; /* Remove default padding */
+}
+
 .navbar ul li {
-    list-style: none;
+    list-style-type: none; /* Remove bullets */
     display: inline-block;
     margin: 0 20px;
     position: relative;
@@ -81,28 +88,27 @@ body {
     overflow-y: auto; /* Make the content scrollable */
 }
 
+.content ul {
+    list-style: none; /* This will remove the bullets */
+    padding-left: 0; /* This will remove the default left padding */
+}
+
+
 #info {
     transform: translateY(200%);
 }
 
-#main h1 {
-    font-size: 2rem; /* Adjusted font size */
+#main h1,
+#docu h1 {
+    font-size: 2rem;
     margin-top: 10px;
 }
 
-#main p {
+#main p,
+#docu p {
     margin: 20px;
     font-weight: 100;
     line-height: 25px;
-}
-
-#docu h1 {
-    font-size: 2rem; /* Adjusted font size */
-    margin-top: -380px;
-}
-
-#docu p {
-    margin: 50px;
 }
 
 button {
