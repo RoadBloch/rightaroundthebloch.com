@@ -78,6 +78,32 @@ body {
     width: 100%;
 }
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0); /* Semi-transparent background */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.6); /* Slightly darker on hover */
+}
+
+.navbar ul li:hover .dropdown-content {
+    display: block;
+}
+
 .content {
     width: 100%;
     position: relative;
@@ -92,7 +118,6 @@ body {
     list-style: none; /* This will remove the bullets */
     padding-left: 0; /* This will remove the default left padding */
 }
-
 
 #info {
     transform: translateY(200%);
