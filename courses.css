@@ -172,6 +172,13 @@ button:hover {
     color: #000;
 }
 
+details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }  
+
 /* Media queries */
 @media screen and (max-width: 768px) {
     .content {
