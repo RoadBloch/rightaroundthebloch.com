@@ -1,0 +1,165 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica, 'Courier New';
+	text-size-adjust: initial;
+}
+
+.banner {
+	height: 100vh;
+	width: 100%;
+	background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('abouticeland.jpeg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.navbar {
+	width: 85%;
+	margin: auto;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.logo {
+	width: 120px;
+	cursor: pointer;
+	border-color: #371515;
+	border-radius: 5px;
+	border-width: 100px;
+}
+
+.navbar ul {
+	list-style: none;
+	display: flex;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar ul li {
+	list-style: none;
+	display: inline-block;
+	margin: 0 20px;
+	position: relative;
+}
+
+.navbar ul li a {
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 10px;
+}
+
+.navbar ul li::after {
+	content: '';
+	height: 3px;
+	width: 0;
+	background: #B2AC88;
+	position: absolute;
+	left: 0;
+	bottom: -5px;
+	transition: 0.5s;
+}
+
+.navbar ul li:hover::after {
+	width: 100%;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0); /* Semi-transparent background */
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.navbar ul li:hover .dropdown-content {
+	display: block;
+}
+
+.content {
+	width: 100%;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+	color: #fff;
+}
+
+#info {
+	transform: translateY(200%);
+}
+
+#main h1 {
+	font-size: 57px;
+	margin-top: 10px;
+}
+
+#main p {
+	margin: 20px;
+	font-weight: 100;
+	line-height: 25px;
+}
+
+#docu h1 {
+	font-size: 40px;
+	margin-top: 50px;
+}
+
+#info {
+	margin: -300px;
+}
+
+button {
+	width: 200px;
+	padding: 15px 0;
+	text-align: center;
+	margin: 20px 10px;
+	border-radius: 25px;
+	font-weight: bold;
+	border: 2px solid #B2AC88;
+	background: transparent;
+	color: #fff;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+
+span {
+	background: #B2AC88;
+	height: 100%;
+	width: 0;
+	border-radius: 25px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: -1;
+	transition: 0.86s;
+}
+
+button:hover span {
+	width: 100%;
+}
+
+button:hover {
+	border: none;
+	color: #000;
+}
