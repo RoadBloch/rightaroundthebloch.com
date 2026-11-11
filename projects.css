@@ -1,27 +1,38 @@
 :root {
-  --bg: #f7f6f2;
+  --bg: #ffffff;
   --surface: #ffffff;
-  --ink: #16191d;
-  --muted: #5b6168;
-  --line: #dcd9d2;
-  --accent: #a3171c;
-  --accent-soft: #f4e4e2;
-  --tag-bg: #eceae4;
+  --ink: #282728;
+  --muted: #646569;
+  --line: #dadfe1;
+  --accent: #c5050c;
+  --accent-soft: #fbeaea;
+  --tag-bg: #f2f2f2;
+  --hero-bg: #c5050c;
+  --hero-ink: #ffffff;
   --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #121417;
-    --surface: #1b1e22;
-    --ink: #e9e7e2;
-    --muted: #a2a7ad;
-    --line: #2e3238;
-    --accent: #f07a72;
-    --accent-soft: #3a2224;
-    --tag-bg: #262a2f;
+    --bg: #1b1a1b;
+    --surface: #242324;
+    --ink: #f2f2f2;
+    --muted: #adadad;
+    --line: #3a383a;
+    --accent: #ff6b6f;
+    --accent-soft: #3d1f21;
+    --tag-bg: #2e2c2e;
+    --hero-bg: #9b0000;
+    --hero-ink: #ffffff;
   }
 }
+
+/* Badger-red intro band */
+.hero { background: var(--hero-bg); color: var(--hero-ink); border-bottom: 0; }
+.hero h1, .hero .lede { color: var(--hero-ink); }
+.hero .eyebrow { color: rgba(255,255,255,.8); }
+.hero .links a { color: var(--hero-ink); }
+.headshot { border: 4px solid rgba(255,255,255,.9); }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
@@ -125,3 +136,12 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
   .hero .wrap { display: block; }
   .headshot { width: 120px; height: 120px; margin-bottom: 20px; }
 }
+
+/* Flow-field header */
+.hero { position: relative; overflow: hidden; }
+.hero .flow { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero .wrap { position: relative; z-index: 1; }
+
+/* Fade-in on scroll (only when JS is running) */
+.reveal-ready .project, .reveal-ready .skills { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+.reveal-ready .project.in, .reveal-ready .skills.in { opacity: 1; transform: none; }
