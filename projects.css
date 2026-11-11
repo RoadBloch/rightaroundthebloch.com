@@ -116,3 +116,5 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
   .body { grid-template-columns: 1fr; gap: 32px; }
   .skills dl div { grid-template-columns: 1fr; gap: 2px; }
 }
+
+.headshot { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; }
