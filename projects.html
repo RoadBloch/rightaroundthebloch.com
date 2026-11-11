@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects | Ari Bloch</title>
+  <meta name="description" content="CFD, heat transfer, and aerodynamics projects by Ari Bloch, aerospace engineering and mathematics student at UW-Madison.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="projects.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Aerospace Engineering &amp; Mathematics · UW-Madison · May 2028</p>
+    <h1>Ari Bloch</h1>
+    <p class="lede">I build and check simulations of fluid flow and heat transfer: CFD in OpenFOAM, numerical models in Python, and the tooling that makes them run on a cluster. I'm headed toward a PhD in machine learning for computational fluid dynamics.</p>
+    <nav class="links" aria-label="Contact and profiles">
+      <a href="mailto:aridbloch@gmail.com">aridbloch@gmail.com</a>
+      <a href="https://www.linkedin.com/in/ari-d-bloch">LinkedIn</a>
+      <a href="https://github.com/RoadBloch">GitHub</a>
+      <a href="Bloch_Ari_resume.pdf">Resume (PDF)</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <nav class="toc" aria-label="Projects">
+    <a href="#icyplot"><span>01</span>IcyPlot: ice-covered lake heat transfer</a>
+    <a href="#cft"><span>02</span>Virtual camber in cross-flow turbines</a>
+    <a href="#airfoil"><span>03</span>Wind tunnel airfoil design &amp; testing</a>
+  </nav>
+
+  <!-- 01 -->
+  <article class="project" id="icyplot">
+    <div class="meta">
+      <span class="num">01</span>
+      <span>Research · Spring 2026</span>
+      <span>Computational Flow Physics &amp; Modeling Group, Prof. Jennifer Franck</span>
+    </div>
+    <h2>IcyPlot: modeling late-winter water temperature in ice-covered lakes</h2>
+
+    <div class="body">
+      <div class="text">
+        <p>In late winter, sunlight passes through lake ice and heats the water just beneath it. Because water is densest near 4&nbsp;°C, that warmer water sinks and drives convection that can lift phytoplankton and nutrients toward the surface. I built an interactive web tool that predicts how the under-ice temperature profile evolves.</p>
+        <ul class="points">
+          <li>Implemented the Matthews &amp; Heaney (1987) analytical radiation-damming solution in Python, with Beer-Lambert light attenuation through white and black ice.</li>
+          <li>Verified it against a finite-difference solver I wrote, tracking down numerical underflow at depth, mismatched attenuation conventions between sources, and the time-step stability limit.</li>
+          <li>Built the web interface (Python backend, HTML/JavaScript front end): users set lake depth, thermocline, and ice properties, then scrub time or ice composition with sliders and watch the profile update.</li>
+          <li>Presented at the 2026 UW-Madison Undergraduate Research Symposium. Funded by WARF through the Research Forward initiative.</li>
+        </ul>
+        <p class="credit">With Dr. Benjamin Smith, Bingfei Yan, and Prof. Jennifer Franck.</p>
+        <p class="tags"><span>Python</span><span>Heat transfer</span><span>Finite differences</span><span>Web app</span></p>
+        <p class="actions">
+          <a href="images/icyplot-poster.jpg">View full poster</a>
+          <a href="https://github.com/RoadBloch/RadiFlux">Code on GitHub</a>
+          <!-- <a href="LIVE-APP-URL">Try the live app</a> -->
+        </p>
+      </div>
+      <figure class="media">
+        <a href="images/icyplot-poster.jpg"><img src="images/icyplot-poster.jpg" alt="Research poster: IcyPlot, a graphical interface for modeling late winter water temperatures in ice-covered lakes" loading="lazy"></a>
+        <figcaption>Symposium poster, Spring 2026.</figcaption>
+      </figure>
+    </div>
+  </article>
+
+  <!-- 02 -->
+  <article class="project" id="cft">
+    <div class="meta">
+      <span class="num">02</span>
+      <span>Research · Summer 2026–present</span>
+      <span>Computational Flow Physics &amp; Modeling Group</span>
+    </div>
+    <h2>Virtual camber in cross-flow turbines</h2>
+
+    <div class="body">
+      <div class="text">
+        <p>A cross-flow turbine blade travels in a circle, so the flow meets its leading and trailing edges at different angles. A symmetric foil behaves as if it were cambered, and that effective camber changes through every rotation. I'm extending a previous lab study of this effect to larger domains with CFD.</p>
+        <ul class="points">
+          <li>Run transient RANS simulations (k-ω SST, sliding mesh) of a rotating NACA&nbsp;0018 blade at Re&nbsp;≈&nbsp;10<sup>6</sup> in OpenFOAM.</li>
+          <li>Built a 12-case structured mesh refinement study in Pointwise, varying first-cell height, boundary-layer growth rate, and cell aspect ratio.</li>
+          <li>Automate decomposition, parallel runs, reconstruction, and post-processing on UW's CHTC cluster with Python, Bash, and SLURM.</li>
+          <li>Wrote Python mesh-morphing tools (FFD/RBF) that add camber to the blade by transforming the existing mesh, so no re-meshing is needed.</li>
+          <li>Rebuilt a labmate's MATLAB virtual-camber visualizer as a Python GUI that animates the blade's effective shape through the rotation.</li>
+        </ul>
+        <p class="status"><strong>In progress:</strong> the blade force output shows oscillations I've narrowed to the turbulence wall treatment. I'm still working on the fix.</p>
+        <p class="tags"><span>OpenFOAM</span><span>Pointwise</span><span>HPC / SLURM</span><span>Python</span><span>Turbulence modeling</span></p>
+      </div>
+      <div class="media stack">
+        <figure>
+          <img src="images/cft-mesh.jpg" alt="Computational mesh around a NACA 0018 blade with a structured boundary-layer region" loading="lazy">
+          <figcaption>Mesh around the blade with a structured boundary-layer region.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/cft-mesh-study.png" alt="Blade force coefficients over one rotation for three mesh resolutions" loading="lazy">
+          <figcaption>Force coefficients over one rotation for three mesh resolutions (75k to 153k points).</figcaption>
+        </figure>
+      </div>
+    </div>
+  </article>
+
+  <!-- 03 -->
+  <article class="project" id="airfoil">
+    <div class="meta">
+      <span class="num">03</span>
+      <span>Course project · Fall 2024</span>
+      <span>Intro to Aerospace Engineering</span>
+    </div>
+    <h2>Wind tunnel airfoil design &amp; testing</h2>
+
+    <div class="body">
+      <div class="text">
+        <p>Our class built an open-loop wind tunnel; my team designed, fabricated, and tested the airfoils that went in it.</p>
+        <ul class="points">
+          <li>Modeled NACA airfoils in SolidWorks, 3D-printed them, and compared measured lift and drag against QBlade predictions.</li>
+          <li>Wrote a MATLAB tool that generates cambered NACA four-digit airfoils for rapid screening across angles of attack.</li>
+          <li>Helped design and test a servo-actuated angle-of-attack mount, and supplied QBlade load data to the structures team.</li>
+          <li>When force readings stopped making sense the night before our presentation, traced the problem to how the airfoil was mounted and fixed it so the team could finish testing.</li>
+        </ul>
+        <p>I carried the same approach into <strong>WiscWind</strong>, UW's DOE Collegiate Wind Competition team, where I wrote a MATLAB program that generates airfoil sections along the blade span and exports them for analysis and CAD.</p>
+        <p class="tags"><span>SolidWorks</span><span>QBlade</span><span>MATLAB</span><span>Wind tunnel testing</span></p>
+      </div>
+      <div class="media stack">
+        <figure>
+          <img src="images/airfoil-cad.jpg" alt="SolidWorks model of a NACA 4414 airfoil section" loading="lazy">
+          <figcaption>NACA 4414 test section in SolidWorks.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/aoa-mount-cad.png" alt="CAD of the servo-actuated angle-of-attack mount linkage" loading="lazy">
+          <figcaption>Servo-actuated angle-of-attack mount.</figcaption>
+        </figure>
+        <figure class="small">
+          <img src="images/airfoil-printed.jpg" alt="3D-printed airfoil test section" loading="lazy">
+          <figcaption>Printed test section.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </article>
+
+  <section class="skills" aria-labelledby="skills-h">
+    <h2 id="skills-h">Tools</h2>
+    <dl>
+      <div><dt>CFD &amp; CAE</dt><dd>OpenFOAM, Pointwise, ANSYS (Workbench, Mechanical APDL), QBlade, Tecplot, Simulink</dd></div>
+      <div><dt>Code &amp; computing</dt><dd>Python, MATLAB, Linux, Bash, SLURM, HPC (CHTC)</dd></div>
+      <div><dt>CAD</dt><dd>SolidWorks, Siemens Inspire</dd></div>
+    </dl>
+  </section>
+
+</main>
+
+<footer class="wrap foot">
+  <p>Ari Bloch · <a href="mailto:aridbloch@gmail.com">aridbloch@gmail.com</a></p>
+</footer>
+
+</body>
+</html>
