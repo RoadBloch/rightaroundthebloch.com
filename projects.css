@@ -145,3 +145,8 @@ figcaption { font-size: 14px; color: var(--muted); margin-top: 8px; }
 /* Fade-in on scroll (only when JS is running) */
 .reveal-ready .project, .reveal-ready .skills { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
 .reveal-ready .project.in, .reveal-ready .skills.in { opacity: 1; transform: none; }
+
+/* Videos */
+.media video, .wide video { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--line); border-radius: 8px; }
+.wide { margin: 40px 0 0; }
+@media (prefers-reduced-motion: reduce) { video[autoplay] { animation: none; } }

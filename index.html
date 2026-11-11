@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="projects.css?v=4">
+  <link rel="stylesheet" href="projects.css?v=2">
 </head>
 <body>
 
@@ -93,6 +93,10 @@
       </div>
       <div class="media stack">
         <figure>
+          <video src="images/cft-flowfield.mp4" poster="images/cft-flowfield-poster.jpg" autoplay muted loop playsinline aria-label="Velocity contours as the blade rotates through the flow"></video>
+          <figcaption>Streamwise velocity as the blade starts rotating (OpenFOAM, plotted in Tecplot).</figcaption>
+        </figure>
+        <figure>
           <img src="images/cft-mesh.jpg" alt="Computational mesh around a NACA 0018 blade with a structured boundary-layer region" loading="lazy">
           <figcaption>Mesh around the blade with a structured boundary-layer region.</figcaption>
         </figure>
@@ -102,6 +106,10 @@
         </figure>
       </div>
     </div>
+    <figure class="wide">
+      <video src="images/cft-virtual-camber.mp4" poster="images/cft-virtual-camber-poster.jpg" autoplay muted loop playsinline aria-label="Animation of the blade's effective camber, angle of attack, and orbit position through one rotation"></video>
+      <figcaption>My Python virtual-camber tool through one rotation (λ = 1.9, c/R = 0.49): the blade's effective shape in its own frame (left), angle of attack versus azimuth (center), and the blade's position on its orbit (right).</figcaption>
+    </figure>
   </article>
 
   <!-- 03 -->
@@ -156,6 +164,7 @@
 <footer class="wrap foot">
   <p>Ari Bloch · <a href="mailto:aridbloch@gmail.com">aridbloch@gmail.com</a> · <a href="https://rightaroundthebloch.com/index_old.html">Visit the old RATB.com</a></p>
 </footer>
+
 <script src="flowfield.js" defer></script>
 </body>
 </html>
